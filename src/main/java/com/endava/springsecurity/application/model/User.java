@@ -26,11 +26,12 @@ public class User implements UserDetails {
     private Long id;
 
     @Column(unique = true)
-    @Size(min=8,max = 20)
     private String username;
 
-    @Column(length = 100)
     private String password;
+
+    @Column(unique = true)
+    private String email;
 
     @Column(nullable = false)
     private boolean enabled;
@@ -38,7 +39,6 @@ public class User implements UserDetails {
     @OneToOne
     @JoinColumn(name = "role_id")
     private Role role;
-
 
     public Long getId() {
         return id;
@@ -48,9 +48,10 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public User(@Size(min = 8, max = 20) String username, String password, boolean enabled,Role role) {
+    public User(String username, String password, String email, boolean enabled,Role role) {
         this.username = username;
         this.password = password;
+        this.email=email;
         this.enabled = enabled;
         this.role=role;
     }
@@ -62,6 +63,14 @@ public class User implements UserDetails {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

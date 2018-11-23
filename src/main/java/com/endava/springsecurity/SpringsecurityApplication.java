@@ -40,7 +40,7 @@ public class SpringsecurityApplication implements CommandLineRunner{
         logger.info("Role saved");
 
         logger.info("Saving a user");
-        User user=new User("username","$2y$12$fDn63An8qVNi4wiMYOC.SemE.W7w8PaJl9OMbhTHGV4crofl2t5Um/$2y",true,role);
+        User user=new User("username","$2y$12$fDn63An8qVNi4wiMYOC.SemE.W7w8PaJl9OMbhTHGV4crofl2t5Um/$2y","user@gmial.com",true,role);
         userService.save(user);
         logger.info("User saved");
 
@@ -51,7 +51,7 @@ public class SpringsecurityApplication implements CommandLineRunner{
         logger.info("Admin saved");
 
         logger.info("Saving a user");
-        User user1=new User("user_admin","admin",true,admin);
+        User user1=new User("user_admin","admin","admin@yahoo.com",true,admin);
         userService.save(user1);
         logger.info("User saved");
 
